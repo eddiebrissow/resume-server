@@ -16,7 +16,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ('username', 'email', 'password')
-        # read_only_fields = ('username', )
 
     def create(self, validated_data):
         user = super(UserSerializer, self).create(validated_data)
@@ -26,7 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    # url = serializers.HyperlinkedIdentityField(view_name="api:userprofile-detail")
 
     user = UserSerializer(many=False, read_only=True)
 
