@@ -8,7 +8,7 @@ class ResumeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Resume
-        fields = ('file', 'page_count', 'created', 'updated', 'user')
+        fields = ('file', 'page_count', 'created', 'updated', 'user', 'id')
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -58,8 +58,11 @@ class ResumeDetail(generics.RetrieveUpdateAPIView):
     serializer_class = ResumeSerializer
     parser_classes = (MultiPartParser,)
     authentication_classes = [OAuth2Authentication, SessionAuthentication]
+    filter_class = Resumefilter
     permission_classes = (CustomObjectPermissions, )
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
+    ordering_fields = '__all__'
+
     filter_fields = '__all__'
 
     def perform_update(self, serializer):
